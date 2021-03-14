@@ -1,0 +1,33 @@
+@import "variables";
+
+@function anchoDisplay () {
+        @return $anchoYaltoBoton*4 + 3*20;
+}
+@function altoDisplay () {
+    @return $anchoYaltoBoton+ 25px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(100, 87, 87, 0.767);
+    height: 100vh;
+}
+
+#calculadora {
+    border: 4px solid black;
+    box-sizing: border-box;
+    padding: 24px 24px;
+    border-radius: 10px;
+    background-color: rgba(245, 245, 220, 0.514);
+}
+
+#display {
+    width: anchoDisplay();
+    height: altoDisplay();
+    border: 4px solid black;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    border-radius: 9px;
+}

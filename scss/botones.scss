@@ -1,0 +1,29 @@
+@import "variables";
+
+@function sizeBotones () {
+    @return $anchoYaltoBoton/2;
+}
+.boton {
+    border: 2px solid black;  
+    border-radius: 9px;
+    width: $anchoYaltoBoton;
+    height: $anchoYaltoBoton*0.7;
+    box-sizing: border-box;
+    display: flex;
+    background-color: blue;
+    justify-content: center;
+    p {
+        font-size: sizeBotones();
+        align-self: center;
+    }
+}
+
+.anchoPorDos {
+    width: $anchoYaltoBoton*2 + 20;
+}
+
+.fila {
+    display: flex;
+    column-gap: 20px;
+    margin-bottom: 20px;
+}
