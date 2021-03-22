@@ -325,7 +325,16 @@ body {
   border: 4px solid black;
   box-sizing: border-box;
   margin-bottom: 15px;
-  border-radius: 9px; }
+  border-radius: 9px;
+  font-size: 3em; }
+
+#display-resultado {
+  width: 450.8px;
+  height: 56.81818px;
+  border: 4px solid black;
+  box-sizing: border-box;
+  border-radius: 9px;
+  font-size: 3em; }
 
 .boton {
   border: 2px solid black;
