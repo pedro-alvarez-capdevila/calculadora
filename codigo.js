@@ -88,13 +88,12 @@ function apretarBoton (type) {
         resultDisplay.innerHTML = "";
         // en caso de que se haya apretado una operacion
     } else if (/[+|=|*|%|/]/.test(type) || type == "-"){
-        
         // el ultimoApretado es numero entonces: cambio el valor del resultado
         if (/[0-9]/.test(calc.ultimoApretado)){
             calc.cambiarUltimoApretado(type);
             calc.cambiarResultado();
             calc.cambiarUltimoOperadorApretado(type);
-            // si salió igual entonces no tengo quep ponerlo en el display
+            // si salió igual entonces no tengo que ponerlo en el display
             if (! (type == "=")){
                 display.innerHTML += " " + type + " ";
             } else {
@@ -104,8 +103,8 @@ function apretarBoton (type) {
                 calc.cambiarUltimoApretado("1");
             }
             // el ultimo apretado es un operador entonces tengo que reemplazarlo por el nuevo operador
-        } else if (/[+|-|*|%|/]/.test(calc.ultimoApretado) ||type == "-") {
-            display.innerHTML.replace(/.?/, "");
+        } else if (/[+|*|%|/]/.test(calc.ultimoApretado) || calc.ultimoApretado == "-") {
+            display.innerHTML = display.innerHTML.replace(display.innerHTML.charAt(display.innerHTML.length - 2), type);
             calc.cambiarUltimoApretado(type);
             calc.cambiarUltimoOperadorApretado(type);
             // el ultimo apretado es "" entonces no me lo deberia permitir por lo que no hace nada
@@ -113,9 +112,17 @@ function apretarBoton (type) {
 
         // en el caso de que se haya apretado un numero
     } else if (/[0-9]/.test(type) || type == ".") {
-        display.innerHTML += type;
-        calc.cambiarNumeroActual(type);
-        calc.cambiarUltimoApretado(type);
+        
+        if (calc.ultimoOperadorApretado == "=" && calc.ultimoApretado == "1") {
+            calc.reiniciar();
+            display.innerHTML = type;
+            calc.cambiarNumeroActual(type);
+            calc.cambiarUltimoApretado(type);
+        } else {
+            display.innerHTML += type;
+            calc.cambiarNumeroActual(type);
+            calc.cambiarUltimoApretado(type);
+        }
         // este ultimo caso es cuando apreto el igual
     } else {
         // tengo que poner otro elemento en el div para que aparezca el valor del resultado.
@@ -123,3 +130,7 @@ function apretarBoton (type) {
     }
     
 }
+
+
+
+/***********  tengo que modificar el hecho de que cuando apreto "+" y luego quiero apretar "-" porque me confundí entonces me tiene que dejar hacer el cambio***********/
