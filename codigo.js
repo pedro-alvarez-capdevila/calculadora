@@ -26,7 +26,6 @@ class calculadora {
         this.ultimoOperadorApretado = "";
     }
 
-    
     //setter
     cambiarUltimoApretado(type){
         this.ultimoApretado = type;
@@ -49,8 +48,6 @@ class calculadora {
                 this.resultado = parseFloat(this.resultado, 10) / parseFloat(this.numeroActual, 10);
             } else if (this.ultimoOperadorApretado == "%") {
                 this.resultado = parseFloat(this.resultado, 10) % parseFloat(this.numeroActual, 10);
-            } else {
-                // cuando es igual
             }
         }
         
@@ -65,21 +62,6 @@ class calculadora {
             this.numeroActual = num;
         }
     }
-
-    // operar = (num, type) => {
-    //     if (type = "+"){
-    //         this.resutado += num;
-    //     } else if (type = "-"){
-    //         this.resutado -= num;
-    //     }else if (type = "/"){
-    //         this.resutado /= num;
-    //     } else if (type = "*"){
-    //         this.resutado *= num;
-    //     } else {
-    //         // resto
-    //         this.resutado %= num;
-    //     }
-    // }
     reiniciar = ()=> {
         this.numeroActual = 0;
         this.resultado = 0;
@@ -87,6 +69,9 @@ class calculadora {
         this.ultimoOperadorApretado = "";
     } 
 }
+
+
+
 
 let calc = new calculadora();
 
